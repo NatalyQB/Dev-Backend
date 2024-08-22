@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle del Dispositivo</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!-- Encabezadp -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#"></a>
+        <img src="img/logo.png" alt="">
+    </nav>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Características del dispositivo</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Inicio</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Detalle del dispositivo <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Favoritos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Buscar</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- Contenido -->
+
+
+
+    <div class="container mt-4">
+        <div id="detalle-dispositivo">
+            <!-- Aquí se mostrará la información del dispositivo -->
+        </div>
+
+
+
+        <!-- comentarios -->
+        <div class="mt-4">
+            <h3>Comentarios</h3>
+
+            <ul id="lista-comentarios" class="list-group mb-4">
+                <!-- Aquí se insertan los comentarios -->
+            </ul>
+            <form id="form-comentario">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="Tu nombre" required>
+                </div>
+                <div class="form-group">
+                    <label for="comentario">Comentario</label>
+                    <textarea class="form-control" id="comentario" rows="3" placeholder="Escribe tu comentario"
+                        required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+
+    <footer class="bg-light text-center py-4">
+        <p>© 2024 Dispositivos Inteligentes. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/detalle.js"></script>
+</body>
+
+</html>
