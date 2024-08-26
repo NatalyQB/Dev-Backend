@@ -1,49 +1,96 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DESARROLLO DE BACKEND</title>
+    <title>Desarrollo de Backend</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+
 </head>
+
 <body>
+    <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"></a>
-        <img src="img/logo.png" alt="">
+        <a class="navbar-brand" href="#">
+            <img src="img/logo.png" alt="Logo" class="logo">
+        </a>
         <form class="form-inline my-2 my-lg-0 ml-auto">
             <input class="form-control mr-sm-2" type="search" placeholder="Buscar dispositivo" aria-label="Buscar">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
         </form>
+        <button type="button" class="btn btn-primary ml-2" data-toggle="modal" data-target="#loginModal">
+            Iniciar Sesión
+        </button>
     </nav>
+
+    <!-- Modal de Inicio de Sesión -->
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm" novalidate>
+                        <div class="form-group">
+                            <label for="email">Correo Electrónico</label>
+                            <input type="email" class="form-control" id="email" placeholder="Ingrese su correo" required>
+                            <div class="invalid-feedback">
+                                Por favor, ingrese un correo electrónico válido.
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Contraseña</label>
+                            <input type="password" class="form-control" id="password" placeholder="Ingrese su contraseña" required>
+                            <div class="invalid-feedback">
+                                La contraseña es obligatoria.
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">Iniciar Sesión</button>
+                        <p class="text-center mt-3">
+                            <a href="#">Recuperar Contraseña</a>
+                        </p>
+                        <div id="error-msg" class="text-danger text-center mt-2" style="display: none;">
+                            Credenciales incorrectas. Inténtelo nuevamente.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
     <header class="header">
-        <div class="menu container">
-            <nav class="navbar">
-                <ul class="nav-list">
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Celulares</a></li>
-                    <li><a href="#">Portátiles</a></li>
-                    <li><a href="#registro-usuarios">Contacto</a></li>
-                    
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Celulares</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Portátiles</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#registro-usuarios">Contacto</a></li>
                 </ul>
             </nav>
-    
-            <div class="header-content d-flex justify-content-between align-items-center">
+            <div class="header-content d-flex justify-content-between align-items-center mt-4">
                 <div class="header-img">
                     <img src="img/inicio.jpg" alt="Imagen de inicio" class="img-fluid">
                 </div>
                 <div class="header-txt">
-                    <h1>¿Buscas el mejor celular? </h1>
+                    <h1>¿Buscas el mejor celular?</h1>
                     <h2>Descubre lo último en tecnología</h2>
                     <p>Explora, compara y elige</p>
                 </div>
             </div>
         </div>
     </header>
+
     <!-- Contenido Central -->
     <div class="container mt-4">
         <div class="row">
-            <!-- Se crean unos filtros base -->
             <div class="col-md-3">
                 <h5>Filtrar por:</h5>
                 <div class="form-group">
@@ -56,7 +103,6 @@
                         <option>Oppo</option>
                         <option>OnePlus</option>
                         <option>Google</option>
-
                     </select>
                 </div>
                 <div class="form-group">
@@ -68,49 +114,68 @@
                     </select>
                 </div>
             </div>
-
-    <div class="container mt-4">
-        <div class="row">
             <div class="col-md-9">
                 <div class="row" id="device-list">
-                    <!-- se insertan las cards de los dispositivos con la función del main.js-->
+                    <!-- Las cards de los dispositivos se insertan aquí -->
                 </div>
             </div>
         </div>
     </div>
 
-<div class="container mt-4"  id="registro-usuarios">
-    <h2>Registro de Usuarios</h2>
-    <form id="form-registro">
-        <div class="form-group">
-            <label for="usuario">Usuario</label>
-            <input type="text" class="form-control" id="usuario" placeholder="Nombre de usuario" required>
-        </div>
-        <div class="form-group">
-            <label for="password">Contraseña</label>
-            <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Registrar</button>
-    </form>
-    <table class="table mt-4" id="tabla-usuarios">
-        <thead>
-            <tr>
-                <th>Usuario</th>
-                <th>Contraseña</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Las filas de la tabla se agregarán dinámicamente aquí -->
-        </tbody>
-    </table>
-</div>
+    <!-- Registro de Usuarios -->
+    <div class="container mt-4" id="registro-usuarios">
+        <h2>Registro de Usuarios</h2>
+        <form id="form-registro">
+            <div class="form-group">
+                <label for="usuario">Usuario</label>
+                <input type="text" class="form-control" id="usuario" placeholder="Nombre de usuario" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Registrar</button>
+        </form>
+        <table class="table mt-4" id="tabla-usuarios">
+            <thead>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Contraseña</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Las filas de la tabla se agregarán dinámicamente aquí -->
+            </tbody>
+        </table>
+    </div>
 
-
-    
+    <!-- Footer -->
     <footer class="bg-light text-center py-4">
         <p>© 2024 Dispositivos Inteligentes. Todos los derechos reservados.</p>
     </footer>
-    <script src="js/main.js"></script>
 
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.0/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const loginForm = document.getElementById('loginForm');
+            loginForm.addEventListener('submit', function (event) {
+                if (!loginForm.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                } else {
+                    // Aquí se agrego la lógica de autenticación
+                    // Si la autenticación falla, muestra el mensaje de error
+                    document.getElementById('error-msg').style.display = 'block';
+                    event.preventDefault(); // Remover esta línea si la autenticación es exitosa
+                }
+                loginForm.classList.add('was-validated');
+            });
+        });
+    </script>
 </body>
+
 </html>
