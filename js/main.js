@@ -112,19 +112,33 @@ function mostrarUsuarios() {
 }
 
 // envío del formulario de registro
-document.getElementById('form-registro').addEventListener('submit', function(e) {
-    e.preventDefault();
+document.addEventListener('DOMContentLoaded', function () {
+    const formRegistro = document.getElementById('form-registro');
+    const tablaUsuarios = document.querySelector('#tabla-usuarios tbody');
 
-    const usuario = document.getElementById('usuario').value;
-    const password = document.getElementById('password').value;
+    formRegistro.addEventListener('submit', function (event) {
+        event.preventDefault();
 
-    if (usuario && password) {
-        usuarios.push({ usuario, password });
-        mostrarUsuarios();
+        const nombre = document.getElementById('nombre').value;
+        const apellido = document.getElementById('apellido').value;
+        const usuario = document.getElementById('usuario').value;
+        const password = document.getElementById('password').value;
 
-        // Limpiar el formulario
-        document.getElementById('form-registro').reset();
-    }
+        // Crear nueva fila para la tabla
+        const nuevaFila = document.createElement('tr');
+        nuevaFila.innerHTML = `
+            <td>${nombre}</td>
+            <td>${apellido}</td>
+            <td>${usuario}</td>
+            <td>${password}</td>
+        `;
+
+        // Añadir la fila a la tabla
+        tablaUsuarios.appendChild(nuevaFila);
+
+        // Limpiar el formulario después de registrar
+        formRegistro.reset();
+    });
 });
 
 // Inicializar la vista de la tabla
